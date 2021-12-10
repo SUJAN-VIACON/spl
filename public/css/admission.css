@@ -1,0 +1,253 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family:  sans-serif;
+    
+    font-weight: 500;
+}
+body {
+    
+    background-position: center;
+    background-size: cover;
+    font-family: sans-serif;
+  
+
+}
+
+.admissionbox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    background-image: url(../img/pata.jfif);
+
+}
+
+.regform {
+    width:90%;
+    background:linear-gradient(#4e27eb,rgb(171, 158, 240),#4e27eb);
+   
+    margin: auto;
+    
+    padding: 10px 0px 10px 0px;
+    text-align: center;
+   
+    
+}
+
+.main{
+
+    overflow-y: scroll;
+    background-color: rgb(236, 238, 238);
+    width: 78%;
+    height: 85vh;
+    margin-left: auto;
+    margin-right: 15px;
+   
+    border-radius: 300px 0px 0px 300px;
+
+}
+
+#name{
+   display: flex;
+}
+
+form{
+    margin-left: 205px;
+}
+
+h2{
+
+    width: 200px;
+    font-size: 20px;
+    padding: 18px;
+    text-align: left;
+}
+
+input{
+    width: 56%;
+    height: 25px;
+    margin: auto;
+   
+}
+.classs{
+    width: 56%;
+    height: 30px;
+    margin: auto;
+    margin-right: 15px;
+}
+.classs1{
+    width: 10%;
+    height: 30px;
+    margin: auto;
+    margin-right: 15px;
+}
+
+.number1{
+    width: 56%;
+    height: 25px;
+    margin: auto;
+    margin-right: 14px;
+}
+
+
+
+.radioo{
+    display: flex;
+    padding-top: 31px;
+    text-align: left;
+}
+
+
+button {
+    background:linear-gradient(#fff,#4e27eb);
+    display: block;
+    margin: 63px 42px 29px 379px;;
+    text-align: center;
+    border-radius: 25px;
+    border: 2px solid #366473;
+    padding: 14px 110px;
+    outline: none;
+    
+    cursor: pointer;
+    transition: 0.25px;
+}
+
+button::hover {
+    background-color: #77f37c;
+}
+
+.welcome{
+    position: fixed;
+    left: 158px;
+    top: 162px;
+    color: #fff;
+}
+
+a{
+    width: 150px;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    padding: 12px 0;
+    background-color: #fff;
+    border: .5px solid #fff;
+    position: relative;
+    border-radius: 27px;
+}
+
+.pt{
+    padding: 71px 0px;
+    width: 155px;
+    line-height: 30px;
+}
+
+#study{
+    padding: 54px 0px;
+    font-size: 14px;
+    padding-top: 30px;
+}
+
+#photo{
+   padding-top: 42px;
+   display: flex;
+}
+
+@media screen and (max-width: 770px){
+
+    .admissionbox{
+        height: 97vh;
+    }
+
+  .main{
+   
+  width: 100%;
+    height: 96.5vh;
+    margin-left: auto;
+    margin-right: 15px;
+    border-radius: 0;
+   
+   
+  }
+
+
+
+  .regform{
+    width: 100%;
+    height: 100%;
+   
+  }
+  form{
+    margin-left: 0px;
+  }
+
+  body{
+   height: 100vh;
+   margin-top: 0;
+  }
+  h2{
+      font-size: 13px;
+  }
+  input{
+      margin-right: 13px;
+  }
+  button {
+   
+    margin: 51px 16px 45px 206px;
+    
+    
+    border: 2px solid #366473;
+    padding: 4px 42px;
+    
+   }
+
+
+    .classs{
+        font-size: 10px;
+    }
+    .pt {
+        padding: 21px 0px;
+        width: 94px;
+        line-height: 17px;
+    }
+   
+    .radioo {
+        
+        padding-top: 31px;
+        font-size: 12px;
+        padding-right: 19px;
+        flex-direction: column;
+    }
+    .welcome {
+       position: absolute;
+       top: 86%;
+       left: -14px;
+        width: 84px;
+        font-size: 10px;
+    }
+     .welcome p{
+        display: none;
+    }
+    .welcome h1{
+        display: none;
+    }
+    #study {
+        padding: 36px 0px;
+        font-size: 8px;
+        padding-top: 18px;
+    }
+    a{
+        width: 99px;
+    }
+
+   
+
+
+
+    
+}

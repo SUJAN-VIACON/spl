@@ -1,0 +1,125 @@
+@media(max-width:700px){
+
+    .first_intro h1{
+        font-size: 22px;
+    }
+
+    .first_intro p{
+        font-size: 12px;
+    }
+
+
+    .first_logo img{
+       
+        margin: 0px 17px;
+    width: 63px;
+    }
+
+    .omm img{
+        height: 43px;
+        margin: 6px 0px;
+       
+    }
+
+    .NAVBAR{
+        text-align: center;
+        margin-right: none;
+    }
+
+    .pp{
+        padding-bottom: 0;
+    }
+
+    /* carasol */
+    
+    .text-box h1 span{
+        font-size: 30px;
+        
+    }
+    .text-box p{
+        font-size: 12px;
+    }
+    .banner-text h1{
+        font-size: 44px;
+    }
+
+    .banner-btn a{
+        display: block;
+        margin: 20px auto;
+    }
+
+    .title-text h1{
+        font-size: 35px;
+
+    }
+    /* features */
+    .features{
+        flex-basis: 100%;
+    }
+
+    .features-img{
+        flex-basis: 100%;
+    }
+    .features-img img{
+        width: 100%;
+    }
+
+    /* course */
+      .row{
+        flex-direction: column;
+    }
+
+
+    .cou{
+        font-size: 30px;
+    }
+
+   .course{
+       padding: 0;
+   }
+
+    /* festivel */
+
+    .single-service{
+        flex-basis: 100%;
+        margin-bottom: 30px;
+    }
+
+    .service-desc p{
+        font-size: 12px;
+    }
+
+    hr{
+        margin: 5px auto;
+    }
+
+    .single-service:hover .service-desc {
+        bottom: 25% !important;
+    }
+
+    /* testimonial */
+
+    .testimonial-col{
+        flex-basis: 100%;
+    }
+
+    /* footer */
+    .footer-left,.footer-right{
+        flex-basis: 100%;
+        font-size: 10px;
+    }
+
+    .footer-img{
+        top: 17%;
+        width: 345px;
+    }
+
+    .logo {
+        width: 60px;
+        position: absolute;
+        top: 18%;
+        left: 23px;}
+
+    
+
+}

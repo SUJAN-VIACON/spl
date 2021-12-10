@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+
+
+.banner-btn a{
+    width: 150px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0 10px;
+    padding: 12px 0;
+    color: #fff;
+    border: .5px solid #fff;
+    position: relative;
+    z-index: 1;
+    transition: color 0.5s;
+}
+
+.banner-btn a span{
+    width: 0%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #fff;
+    z-index: -1;
+    transition: 0.5s;
+}
+
+.banner-btn a:hover span{
+    width: 100%;
+
+
+}
+
+.banner-btn a:hover{
+    color: #000;
+
+
+}
+#menubtn img{
+    width: 20px;
+    margin-top: 15px;
+}
+
+
+
+
+#search{
+    padding: 5px;
+    font-size: 17px;
+    border: 2px solid gray;
+    border-radius: 9px;
+}
+
+.background{
+    background-image: linear-gradient(rgba(0,0,0,0.5),#009688), url(../img/location.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+.firstsection{
+    height: 75vh;
+}
+
+.box-main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 50%;
+    margin: auto;
+    height: 80%;
+    padding-top: 130px;
+}
+
+.firsthalf{
+width: 80%;
+
+flex-direction: column;
+justify-content: center;
+text-align: center;
+}
+
+.secondhalf{
+    width: 30%;
+
+}
+
+.secondhalf img{
+
+    width: 70%;
+    border: 4px solid white;
+    border-radius: 150px;
+    display: block;
+   margin: 16px 19px;
+} 
+
+.text-big{
+
+    font-size: 40px;
+
+    font-family: 'Poppins', sans-serif;
+    color: #009688;
+    
+    
+    
+
+}
+
+    
+.text-bigg{
+
+    font-size: 80px;
+    font-family: 'Kaushan Script', cursive;
+    color: #fff;
+    
+
+}
+
+.text-small{
+
+    font-size: 18px;
+
+    
+    
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 1140px ){
+    
+    .box-main {
+        flex-direction: column-reverse;
+        max-width: 100%;
+    }
+
+     #search{
+         width: 100%;
+     }
+
+     
+
+    
+     .text-small{
+         text-align: center;
+         font-size: 14px;
+     }
+
+     .text-big{
+         text-align: center;
+         font-size: 18px;
+     }
+
+     .text-bigg{
+         font-size: 40px;
+     }
+
+     .banner-btn a {
+         margin: 10px;
+     }
+
+     
+     
+
+    
+}
+
+
+.location{
+
+    width: 80%;
+    margin: auto;
+    padding: 80px 0;
+}
+
+.location iframe{
+    width: 100%;
+}
+
+
