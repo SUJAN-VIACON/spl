@@ -19,7 +19,7 @@ class UserTable extends DataTableComponent
             Column::make('E-mail', 'email')
                 ->sortable()
                 ->searchable(),
-            Column::make('Verified', 'email_verified_at')
+            Column::make('Created At', 'created_at')
                 ->sortable(),
         ];
     }
