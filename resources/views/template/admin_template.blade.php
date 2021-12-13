@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="{{asset('admin/assets/img/apple-icon.png')}}">
@@ -19,8 +20,8 @@
     <link rel="stylesheet" href="{{asset('admin/assets/css/material-dashboard.css?v=2.1.0') }}" />
     <link rel="stylesheet" href="{{asset('admin/assets/demo/demo.css')}}" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-  <style>
-        #loader{
+    <style>
+        #loader {
             background: #fff url(https://miro.medium.com/max/1400/1*CsJ05WEGfunYMLGfsT2sXA.gif) no-repeat center;
             background-size: 50%;
             height: 100vh;
@@ -28,24 +29,27 @@
             position: fixed;
             z-index: 100;
         }
-        .close{
+
+        .close {
             top: 3px;
-    left: 97%;
-    font-weight: bold; font-size:23px
+            left: 97%;
+            font-weight: bold;
+            font-size: 23px
         }
-        
-        @media (max-width:735px){
-             .close{
-           
-    left: 93%;
-   
-        }
+
+        @media (max-width:735px) {
+            .close {
+
+                left: 93%;
+
+            }
         }
     </style>
+    @livewireStyles
 </head>
 
 <body class="dark-edition">
-      <div id="loader"></div>
+    <div id="loader"></div>
     <div class="wrapper ">
         <div class="sidebar" data-color="purple" data-background-color="black" data-image="{{asset('admin/assets/img/sidebar-2.jpg')}}">
             <!--
@@ -93,8 +97,8 @@
                             <a class="dropdown-item" href="#"></a>
                         </div>
                     </li>
-                    
-                      <li class="nav-item ">
+
+                    <li class="nav-item ">
                         <a class="nav-link" href=" {{route('exam')}} ">
                             <i class="material-icons">library_books</i>
                             <p>exam controller </p>
@@ -120,7 +124,7 @@
                             <p>exam result</p>
                         </a>
                     </li>
-                   
+
 
                     <!-- <li class="nav-item active-pro ">
                 <a class="nav-link" href="./upgrade.html">
@@ -159,7 +163,7 @@
                                 <a class="nav-link" href="{{route('home')}}">
                                     <i class="material-icons">Home</i>
                                     <p class="d-lg-none d-md-block">
-                                      Home
+                                        Home
                                     </p>
                                 </a>
                             </li>
@@ -179,47 +183,47 @@
                                     <a class="dropdown-item" href="javascript:void(0)">Another One</a>
                                 </div>
                             </li> -->
-                           
+
                         </ul>
                     </div>
                 </div>
             </nav>
             <!-- End Navbar -->
             <div class="content">
-               
-  @if($message = Session::get('success'))
+
+                @if($message = Session::get('success'))
                 <div class="alert alert-success  " style=" ">
-                    <p >{{$message}}</p>
-    <button type="button" class="close  " data-dismiss="alert" >X</button>
-                    
+                    <p>{{$message}}</p>
+                    <button type="button" class="close  " data-dismiss="alert">X</button>
+
                 </div>
                 @endif
-                 @if($message = Session::get('error'))
+                @if($message = Session::get('error'))
                 <div class="alert alert-danger  w-100" style=" ">
-                    
+
                     <p class="text-danger" style="   ">{{$message}}</p>
-     <button type="button" class="close fixed-top"  data-dismiss="alert">X</button>
-                   
+                    <button type="button" class="close fixed-top" data-dismiss="alert">X</button>
+
                 </div>
                 @endif
                 @if ($errors->any())
-                <div class="alert alert-danger  w-100 " >
+                <div class="alert alert-danger  w-100 ">
                     <strong>Whoops!</strong> There were some problems with your input.<br><br>
                     <ul>
                         @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
                         @endforeach
                     </ul>
-                     <button type="button" class="close fixed-top"  data-dismiss="alert">X</button>
+                    <button type="button" class="close fixed-top" data-dismiss="alert">X</button>
                 </div>
                 @endif
-    
-   
+
+
                 @yield('content')
             </div>
             <footer class="footer">
                 <div class="container-fluid">
-                   
+
                     <div class="copyright float-right" id="date">
                         , made with <i class="material-icons">favorite</i> by
                         <a href="" target="_blank">sujan</a> for a better web.
@@ -285,21 +289,21 @@
         </div>
     </div>
     <!--   Core JS Files   -->
-    
-     <script src="{{asset('jquery.js')}}"></script>
-    
-   <script>
-        var loader= document.getElementById("loader");
-        window.addEventListener("load",function(){
-            loader.style.display="none";
+
+    <script src="{{asset('jquery.js')}}"></script>
+
+    <script>
+        var loader = document.getElementById("loader");
+        window.addEventListener("load", function() {
+            loader.style.display = "none";
         })
     </script>
-  <script>
-         $(document).ready(function() {
-             setTimeout(function(){
-                 $("div.alert").remove();
-             },2500)
-         });
+    <script>
+        $(document).ready(function() {
+            setTimeout(function() {
+                $("div.alert").remove();
+            }, 2500)
+        });
     </script>
     <script src="{{asset('admin/assets/js/core/jquery.min.js')}}"></script>
 
@@ -489,6 +493,7 @@
         });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    @livewireScripts
 </body>
 
 </html>
