@@ -3,7 +3,7 @@
 
         <!-- head -->
 
-        <div class="d-flex headsection">
+        <div class="d-flex">
             <div class="first_logo d-flex justify-content-center align-items-center">
                 <img src="{{ asset('img/logo.jpeg') }}" class="" alt="logo">
             </div>
@@ -23,20 +23,16 @@
                 </div>
 
             </div>
-            <!-- <div class="last_logo">
-           <img src="img/omm.jpg" class="" alt="logo">
-       </div> -->
+            <div class="last_logo">
+                {{-- <img src="img/omm.jpg" class="" alt="logo"> --}}
+            </div>
         </div>
 
         <!-- head -->
 
     </section>
 
-
-
-
     <section class="container-fluid d-flex part-1" style="height: 95vh;">
-
         <div class="question-box d-flex justify-content-center align-items-center ms-3"
             style="height: 100%; width: 75%;">
             <div class="main-question">
@@ -50,14 +46,17 @@
                         <img src="{{ asset('image/' . $onQuestion?->image . '') }}" class="img-fluid" alt="">
                     </div>
 
-
                     <table class="table table-borderless mb0">
                         <tbody>
                             <tr>
-                                <td> <input type="radio" value="1" name="radiospage01" id="rOption01_1"> 1 ) </td>
-                                <td> <input type="radio" value="2" name="radiospage01" id="rOption01_1"> 2 ) </td>
-                                <td> <input type="radio" value="3" name="radiospage01" id="rOption01_1"> 3 ) </td>
-                                <td> <input type="radio" value="4" name="radiospage01" id="rOption01_1"> 4 ) </td>
+                                <td> <input wire:model="answer" type="radio" value="1" name="radiospage01"
+                                        id="rOption01_1"> 1 ) </td>
+                                <td> <input wire:model="answer" type="radio" value="2" name="radiospage01"
+                                        id="rOption01_1"> 2 ) </td>
+                                <td> <input wire:model="answer" type="radio" value="3" name="radiospage01"
+                                        id="rOption01_1"> 3 ) </td>
+                                <td> <input wire:model="answer" type="radio" value="4" name="radiospage01"
+                                        id="rOption01_1"> 4 ) </td>
                             </tr>
                         </tbody>
                     </table>
@@ -66,25 +65,27 @@
                 <div class="button-box">
                     <hr>
                     <ul class="button">
-                        <button type="button" id="save" class="btn btn-primary" data-btn="1"
-                            style="background: #0cc93d;">SAVE & NEXT</button>
-                        <button type="button" id="clear" class="btn btn-primary" data-btn="1"
-                            style="background: white; color: black;">CLEAR</button>
-                        <button type="button" id="mark" class="btn btn-primary" data-btn="1"
-                            style="background: #ecb20e;">SAVE & MARK FOR NEXT</button>
-                        <button type="button" id="review" class="btn btn-primary" data-btn="1"
-                            style="background:#1b488a">MARK FOR REVIEW & NEXT</button>
+                        <button wire:click="saveAndNext" type="button" class="btn btn-success shadow rounded">SAVE &
+                            NEXT</button>
+                        <button wire:click=" clear" type="button"
+                            class="btn btn-light text-dark shadow rounded">CLEAR</button>
+                        <button wire:click="saveAndMarkForNext" type="button"
+                            class="btn btn-warning shadow rounded">SAVE
+                            & MARK FOR NEXT</button>
+                        <button wire:click="markForReviewAndNext" type="button"
+                            class="btn btn-primary shadow rounded">MARK FOR REVIEW & NEXT</button>
                     </ul>
                 </div>
                 <div class="button-box d-flex  align-items-center"
                     style="background: rgb(240, 240, 240); height: 60px;">
 
                     <ul class="button  mb-0 ps-3">
-                        <button type="button" id="back_btn" class="btn btn-primary"
-                            style="background: white; color: black;">
+                        <button wire:click="findQuestion({{ $questionNo - 1 }})" type="button" id="back_btn"
+                            class="btn btn-primary" style="background: white; color: black;">
                             << BACK </button>
-                                <button type="button" class="btn btn-primary" id="next_btn"
-                                    style="background: white; color: black;">NEXT >></button>
+                                <button wire:click="findQuestion({{ $questionNo + 1 }})" type="button"
+                                    class="btn btn-primary" id="next_btn" style="background: white; color: black;">NEXT
+                                    >></button>
                     </ul>
                     <a type="button" href="{{ route('submit') }}" class="btn btn-primary ms-auto" id="submit" style="height: 38PX;
                    margin-right: 13px;background:#0cc93d ;"> SUBMIT
@@ -93,8 +94,6 @@
             </div>
 
         </div>
-
-
 
         <div class="answerbox-box">
             <div class="timer-box d-flex align-items-center justify-content-center">
@@ -106,15 +105,18 @@
                     @foreach ($questions as $question)
 
                         <div class="col-2">
-                            <button type="button" wire:click="findQuestion"
-                                class="side_button btn btn-primary "  data-id="" style="background: #d8d8d8;
-                                color: #7d7a7a;
-                                border: 2px solid gray;">{{ $question->question_no }}</button>
+                            <button type="button" wire:click="findQuestion({{ $question->question_no }})"
+                                class="btn rounded shadow
+                                @if ($question->question_no == $questionNo)
+                                border-danger border-4
+                                @endif
+                              @if (isset($markedAnswers[$question->question_no]['color']))
+                                  btn-{{ $markedAnswers[$question->question_no]['color'] }}
+                              @endif
+                                 ">{{ $question->question_no }}</button>
                         </div>
 
                     @endforeach
-
-                    <button wire:click="findQuestion">rgg</button>
 
                 </div>
             </div>
@@ -157,5 +159,5 @@
         });
     </script>
 
-    
+
 </div>
