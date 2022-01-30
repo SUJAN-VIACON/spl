@@ -1,37 +1,35 @@
-*{
+* {
     padding: 0;
     margin: 0;
+    font-family: 'Kaushan Script', cursive;
 }
 
 
 /* heaed */
 
-.first_logo{
+.first_logo {
     background: rgb(230, 229, 229);
 }
 
-.first_logo img{
+.first_logo img {
     width: 70px;
-    
     margin: 0 28px;
-    
     border-radius: 35px;
-    
 }
-.omm img{
+
+.omm img {
     width: 70px;
-    
     margin: 0 33px;
-    
     border-radius: 35px;
 }
-.first_intro{
+
+.first_intro {
     width: 100%;
     color: white;
     background: #e5e6e5;
-
 }
-.first_intro h1{
+
+.first_intro h1 {
     font-size: 40px;
     text-transform: uppercase;
     color: #fff;
@@ -39,90 +37,175 @@
     font-weight: 600;
 }
 
-.first_intro p{
+.first_intro p {
     font-family: 'Abel', sans-serif;
     font-size: 18px;
     text-transform: none;
     font-weight: normal;
     color: rgb(138, 136, 136);
-   
 }
 
-.second_logo{
-   background: white;
+.second_logo {
+    background: white;
     border: 4px solid gray;
-
 }
 
-.second_logo img{
+.second_logo img {
     width: 70px;
-    
     margin: 0 28px;
-    
     border-radius: 5px;
-    
 }
 
-.main-question{
-    width: 90%;
-   
+.main-question {
+    width: 100%;
 }
 
-.question_no h1{
+.question_no h1 {
     font-size: 28px;
     font-weight: bold;
 }
-.question_no hr{
+
+.question_no hr {
     height: 3px;
-    color:1px solid black;
-  
+    color: 1px solid black;
 }
-.question h4{
+
+.question h4 {
     font-size: 16px;
-   padding: 28px 0px;
+    padding: 28px 0px;
 }
-.option h3{
+
+.option h3 {
     font-size: 20px;
     font-weight: bold;
     padding-bottom: 13px;
 }
-.option ul{
+
+.option ul {
     margin: 10px 0px;
     padding-left: 0;
     font-size: 17px;
 }
 
-.main-question-part{
-    overflow-y: scroll; 
+.main-question-part {
+    overflow-y: scroll;
 }
-.button{
+
+.button {
     display: flex;
     text-decoration: none;
 }
-.button button{
-   
- margin-right: 4px;
- font-size: 15px;
- font-weight: 500;
- border: 1px solid gray;
+
+.button button {
+    margin-right: 4px;
+    font-size: 15px;
+    font-weight: 500;
+    border: 1px solid gray;
 }
-.answerbox-box{
-    width: 20%;
+
+.answerbox-box {
+    width: 27%;
 }
-.timer-box{
+
+.timer-box {
     height: 10rem;
     width: 100%;
     margin: 15px 0px;
     border: 3px dashed grey;
 }
-.timer-box span{
+
+.timer-box span {
     font-size: 45px;
     font-weight: bold;
 }
-.option-box{
-    height: 25rem;
+
+.option-box {
+    
     width: 100%;
     margin: 20px 0px;
-   
     overflow-y: scroll;
+}
+
+.question_image img {
+    width: 100%;
+
+    margin-bottom: 10px
+}
+
+@media screen and (max-width: 900px) {
+    .headsection {
+        height: 6rem;
+    }
+
+    .part-1 {
+        flex-direction: column;
+    }
+
+
+    .first_logo img {
+        width: 45px;
+        margin: 0px 8px;
+
+    }
+
+    .second_logo {
+        margin: 11px 2px;
+    }
+
+    .second_logo img {
+        width: 58px;
+        height: 100%;
+        margin: 0px;
+
+    }
+
+    .main-question-part {
+        height: 15rem !important;
+    }
+
+    .first_intro p {
+
+        font-size: 12px;
+
+    }
+
+    .question_no hr {
+        height: 1px;
+        margin: 10px 0;
+    }
+
+    .question_no h1 {
+        font-size: 13px;
+        padding-top: 27px;
+
+    }
+
+    .button button {
+        margin-right: 3px;
+        font-weight: bold;
+        font-size: 8px;
+    }
+
+    .button {
+        padding-left: 0px;
+    }
+
+    .answerbox-box {
+        width: 100%;
+    }
+
+    .timer-box {
+        height: 4rem;
+      
+
+    }
+
+    .timer-box span {
+        font-size: 31px;
+    }
+
+    .question-box {
+        margin-left: 0 !important;
+        width: 21rem !important;
+    }
 }
