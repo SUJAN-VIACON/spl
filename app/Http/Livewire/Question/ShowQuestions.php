@@ -4,9 +4,13 @@ namespace App\Http\Livewire\Question;
 
 use App\Models\addquestion;
 use Livewire\Component;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
+
 
 class ShowQuestions extends Component
 {
+    use LivewireAlert;
+
     public $question;
     public $questionNo = 1;
     public $onQuestion;
@@ -19,6 +23,8 @@ class ShowQuestions extends Component
         $this->questions = addquestion::all();
         $this->noOfQuestions = $this->questions->count();
         $this->findQuestion($this->questionNo);
+        session()->flash('success', 'Post successfully updated.');
+        
     }
 
     public function saveAndNext()
@@ -67,6 +73,12 @@ class ShowQuestions extends Component
         $this->onQuestion = $question;
         $this->questionNo = $questionNo;
         $this->checkState();
+    }
+
+    public function forcedToSelect(){
+        if(!isset($this->markedAnswers[$this->questionNo]['answer'])){
+            $this->alert('warning', 'The world has warned you.');
+        }
     }
 
     public function checkState(){

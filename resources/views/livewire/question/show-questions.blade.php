@@ -31,12 +31,20 @@
                     </div>
 
                     <table class="table table-borderless mb0">
+                        @php
+                            $disabled=null;
+                            if (isset($markedAnswers[$questionNo]['answer'])) {
+                                if ($markedAnswers[$questionNo]['color']=='success') {
+                                    $disabled = "disabled";
+                                }
+                            }
+                        @endphp
                         <tbody>
                             <tr>
-                                <td> <input wire:model="answer" type="radio" value="1"> 1 ) </td>
-                                <td> <input wire:model="answer" type="radio" value="2"> 2 ) </td>
-                                <td> <input wire:model="answer" type="radio" value="3"> 3 ) </td>
-                                <td> <input wire:model="answer" type="radio" value="4"> 4 ) </td>
+                                <td> <input {{$disabled}} wire:model="answer" type="radio" value="1"> 1 ) </td>
+                                <td> <input {{$disabled}} wire:model="answer" type="radio" value="2"> 2 ) </td>
+                                <td> <input {{$disabled}} wire:model="answer" type="radio" value="3"> 3 ) </td>
+                                <td> <input {{$disabled}} wire:model="answer" type="radio" value="4"> 4 ) </td>
                             </tr>
                         </tbody>
                     </table>
