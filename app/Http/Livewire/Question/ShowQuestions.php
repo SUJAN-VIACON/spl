@@ -23,24 +23,35 @@ class ShowQuestions extends Component
         $this->questions = addquestion::all();
         $this->noOfQuestions = $this->questions->count();
         $this->findQuestion($this->questionNo);
-        session()->flash('success', 'Post successfully updated.');
-        
+        $this->alert('success', 'Basic Alert');
     }
 
     public function saveAndNext()
     {
+        if(!$this->answer){
+            $this->alert('warning', 'Please select a option before going to save');
+            return;
+        }
         $this->fillMarkedData('success');
         $this->findQuestion($this->questionNo + 1);
-    }
+
+           }
 
     public function clear()
-    {
+    { 
+        if(!isset($this->markedAnswers[$this->questionNo]['answer'])){
+            $this->alert('info', 'Nothing is selected to clear');
+        }
         unset($this->markedAnswers[$this->questionNo]);
         $this->checkState();
     }
 
     public function saveAndMarkForNext()
     {
+        if(!$this->answer){
+            $this->alert('warning', 'Please select a option before going to save');
+            return;
+        }
         $this->fillMarkedData('warning');
         $this->findQuestion($this->questionNo + 1);
     }
@@ -87,6 +98,10 @@ class ShowQuestions extends Component
         }else{
             $this->answer = false;
         }
+    }
+
+    public function submit(){
+        dd($this->markedAnswers);
     }
 
     public function render()

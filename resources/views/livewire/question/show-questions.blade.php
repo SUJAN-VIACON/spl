@@ -1,11 +1,10 @@
 <div>
-    <section class=" bg-dark bg-gradient">
-
-
+    <section class=" bg-dark bg-gradient shadow-sm">
+        <x-livewire-confirm />
         {{-- <div class="first_logo">
                 <img src="{{ asset('img/logo.jpeg') }}" class=" img-fluid float-start w-10" alt="logo">
             </div> --}}
-        <div class="d-flex justify-content-center py-2">
+        <div class="d-flex justify-content-center py-2 ">
             <div>
                 <h3 class="text-light text-center" style="">Study Point Live</h3>
                 <h6 class="ms-3 mb-0 mt-2 text-center text-light">Student ID :- <span>0254178</span></h6>
@@ -58,7 +57,7 @@
                             &
                             NEXT</button>
                         <button wire:click=" clear" type="button"
-                            class="btn btn-light text-dark shadow rounded my-1">CLEAR</button>
+                            class="btn btn-light text-dark rounded my-1">CLEAR</button>
                         <button wire:click="saveAndMarkForNext" type="button"
                             class="btn btn-warning shadow rounded my-1">SAVE
                             & MARK FOR NEXT</button>
@@ -77,7 +76,7 @@
                                     >></button>
                     </div>
                     <div>
-                        <button type="button" href="{{ route('submit') }}"
+                        <button type="button" onclick="livewireConfirm('Do you really want to Approve?', 'submit')"
                             class="btn btn-success shadow rounded border-dark"> SUBMIT
                         </button>
                     </div>
@@ -155,7 +154,16 @@
             }, 1000);
 
         });
+        window.addEventListener("focus", handleBrowserState.bind(context, true));
+window.addEventListener("blur", handleBrowserState.bind(context, false));
+
+function handleBrowserState(isActive){
+    alert("Tge");
+}
+
     </script>
+
+    
 
 
 </div>
