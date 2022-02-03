@@ -5,20 +5,30 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class result extends Model
+class Result extends Model
 {
     use HasFactory;
-    public $timestamps=false;
-    protected $fillable  = [
-        
+
+    protected $table = "results";
+
+    protected $fillable = [
         'user_id',
-        'answers',
-        'marks'
-
-       
-       
-
-        
+        'student_answers',
+        'exam_event_id'
     ];
-    protected $table="result";
+
+    protected $casts = [
+        'student_answers' => 'array',
+    ];
+
+
+    // * relations
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
+    // public function examEvent(){
+    //     $this->hasMany(ExamEvent::class);
+    // }
 }
