@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Result extends Model
 {
@@ -24,11 +25,19 @@ class Result extends Model
 
     // * relations
 
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 
     // public function examEvent(){
     //     $this->hasMany(ExamEvent::class);
     // }
+
+    //scopes
+
+    public function scopeCurrentResult($query)
+    {
+        return $query->where('user_id', Auth::id())->latest()->first();
+    }
 }
