@@ -2,12 +2,12 @@
 
 namespace App\Http\Livewire\Question;
 
+use App\Http\Livewire\CustomComponent;
 use App\Models\addquestion;
-use Livewire\Component;
+use App\Services\QuestionService;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 
-
-class ShowQuestions extends Component
+class ShowQuestions extends CustomComponent
 {
     use LivewireAlert;
 
@@ -28,18 +28,17 @@ class ShowQuestions extends Component
 
     public function saveAndNext()
     {
-        if(!$this->answer){
+        if (!$this->answer) {
             $this->alert('warning', 'Please select a option before going to save');
             return;
         }
         $this->fillMarkedData('success');
         $this->findQuestion($this->questionNo + 1);
-
-           }
+    }
 
     public function clear()
-    { 
-        if(!isset($this->markedAnswers[$this->questionNo]['answer'])){
+    {
+        if (!isset($this->markedAnswers[$this->questionNo]['answer'])) {
             $this->alert('info', 'Nothing is selected to clear');
         }
         unset($this->markedAnswers[$this->questionNo]);
@@ -48,7 +47,7 @@ class ShowQuestions extends Component
 
     public function saveAndMarkForNext()
     {
-        if(!$this->answer){
+        if (!$this->answer) {
             $this->alert('warning', 'Please select a option before going to save');
             return;
         }
@@ -61,6 +60,31 @@ class ShowQuestions extends Component
         $this->fillMarkedData('primary');
         $this->findQuestion($this->questionNo + 1);
     }
+
+    public function submit()
+    {
+        if (!$this->markedAnswers) {
+            $this->alert('warning', 'you have to attened someting before submit');
+            return;
+        }
+        try {
+            $this->QuestionService->saveResult($this->markedAnswers);
+            session()->flash('success', _("This order has been approved"));
+            return redirect()->route('result');
+        } catch (\Throwable $th) {
+            //throw $th;
+            session()->flash('error', __("Something went wrong"));
+        }
+    }
+
+    // * ACCESSCORS
+
+    public function getQuestionServiceProperty()
+    {
+        return new QuestionService;
+    }
+
+    // * HELPER FUNCTIONS
 
     public function fillMarkedData($color)
     {
@@ -86,22 +110,20 @@ class ShowQuestions extends Component
         $this->checkState();
     }
 
-    public function forcedToSelect(){
-        if(!isset($this->markedAnswers[$this->questionNo]['answer'])){
+    public function forcedToSelect()
+    {
+        if (!isset($this->markedAnswers[$this->questionNo]['answer'])) {
             $this->alert('warning', 'The world has warned you.');
         }
     }
 
-    public function checkState(){
-        if(isset($this->markedAnswers[$this->questionNo]['answer'])){
+    public function checkState()
+    {
+        if (isset($this->markedAnswers[$this->questionNo]['answer'])) {
             $this->answer = $this->markedAnswers[$this->questionNo]['answer'];
-        }else{
+        } else {
             $this->answer = false;
         }
-    }
-
-    public function submit(){
-        dd($this->markedAnswers);
     }
 
     public function render()
